@@ -1,0 +1,65 @@
+﻿<StackPanel
+    x:Class="Su.Revit.UI.StatusBarEx.HighVersion.StatusBar.Controls.ProgressBarStackPanel"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel.Resources>
+        <ResourceDictionary>
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/Controls.xaml" />
+                <ResourceDictionary Source="Themes/ColorDefault.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </StackPanel.Resources>
+
+    <StackPanel Orientation="Horizontal">
+
+        <Button
+            Width="54"
+            Height="20"
+            Margin="4,2"
+            VerticalAlignment="Center"
+            Command="{Binding CommandCancel}"
+            Content="取消"
+            Visibility="{Binding HasCancelButton, Converter={StaticResource BooleanToVisibilityConverter}}" />
+
+        <ProgressBar
+            Width="240"
+            Height="16"
+            Margin="4"
+            VerticalAlignment="Center"
+            IsIndeterminate="{Binding IsIndeterminate}"
+            Maximum="{Binding MaximumValue}"
+            Minimum="{Binding MinimumValue}"
+            Value="{Binding CurrentValue}" />
+
+        <Grid Width="30" Margin="4">
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text="{Binding DisplayValue, Mode=OneWay, StringFormat={}{0:0}%}" />
+        </Grid>
+
+        <!--
+        <Rectangle VerticalAlignment="Stretch"
+                   Width="1"
+                   Margin="4"
+                   Stroke="{DynamicResource Color.Static.Foreground}" />
+        -->
+
+        <Grid Width="16" Margin="4">
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text="-" />
+        </Grid>
+        <TextBlock
+            Margin="4"
+            VerticalAlignment="Center"
+            Text="{Binding CurrentOperation}" />
+    </StackPanel>
+</StackPanel>

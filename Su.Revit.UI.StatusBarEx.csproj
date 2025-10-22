@@ -1,0 +1,71 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <UseWPF>true</UseWPF>
+	  <UseWindowsForms>true</UseWindowsForms>
+	  <LangVersion>latest</LangVersion>
+	  <Authors>Su</Authors>
+	  <Version>1.0.0</Version>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+	  <Configurations>RVT_18;RVT_19;RVT_20;RVT_21;RVT_22;RVT_23;RVT_24;RVT_18_D;RVT_19_D;RVT_20_D;RVT_21_D;RVT_22_D;RVT_23_D;RVT_24_D;RVT_17_D;RVT_17;RVT_16;RVT_16_D;RVT_25;RVT_25_D;RVT_26;RVT_26_D</Configurations>
+	  <!--<PackageId>$(MSBuildProjectName)</PackageId>-->
+	  <!--<PackageReadmeFile>README.md</PackageReadmeFile>
+	  <PackageDescription>Revit插件框架的核心功能。详见Confluence</PackageDescription>
+	  <PackageTags>Revit</PackageTags>-->
+  </PropertyGroup>
+	<PropertyGroup Condition="$([System.String]::Copy('$(Configuration)').Contains('16'))">
+		<RvtVersion>2016</RvtVersion>
+		<TargetFramework>net48</TargetFramework>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="$([System.String]::Copy('$(Configuration)').Contains('17'))">
+		<RvtVersion>2017</RvtVersion>
+		<TargetFramework>net48</TargetFramework>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="$([System.String]::Copy('$(Configuration)').Contains('18'))">
+		<RvtVersion>2018</RvtVersion>
+		<TargetFramework>net48</TargetFramework>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="$([System.String]::Copy('$(Configuration)').Contains('19'))">
+		<RvtVersion>2019</RvtVersion>
+		<TargetFramework>net48</TargetFramework>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="$([System.String]::Copy('$(Configuration)').Contains('20'))">
+		<RvtVersion>2020</RvtVersion>
+		<TargetFramework>net48</TargetFramework>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="$([System.String]::Copy('$(Configuration)').Contains('21'))">
+		<RvtVersion>2021</RvtVersion>
+		<TargetFramework>net48</TargetFramework>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="$([System.String]::Copy('$(Configuration)').Contains('22'))">
+		<RvtVersion>2022</RvtVersion>
+		<TargetFramework>net48</TargetFramework>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="$([System.String]::Copy('$(Configuration)').Contains('23'))">
+		<RvtVersion>2023</RvtVersion>
+		<TargetFramework>net48</TargetFramework>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="$([System.String]::Copy('$(Configuration)').Contains('24'))">
+		<RvtVersion>2024</RvtVersion>
+		<TargetFramework>net48</TargetFramework>
+	</PropertyGroup>
+	<PropertyGroup Condition="$([System.String]::Copy('$(Configuration)').Contains('25'))">
+		<RvtVersion>2025</RvtVersion>
+		<TargetFramework>net8.0-windows</TargetFramework>
+	</PropertyGroup>
+		<PropertyGroup Condition="$([System.String]::Copy('$(Configuration)').Contains('26'))">
+		<RvtVersion>2026</RvtVersion>
+		<TargetFramework>net8.0-windows</TargetFramework>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Revit_All_Main_Versions_API_x64" Version="$(RvtVersion).0.0"> </PackageReference>
+	</ItemGroup>
+</Project>
