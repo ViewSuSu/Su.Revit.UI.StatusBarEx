@@ -11,23 +11,23 @@
   </PropertyGroup>
 	<PropertyGroup Condition="$([System.String]::Copy('$(Configuration)').Contains('11'))">
 		<RvtVersion>2011</RvtVersion>
-		<TargetFramework>net48</TargetFramework>
+		<TargetFramework>net45</TargetFramework>
 	</PropertyGroup>
 	<PropertyGroup Condition="$([System.String]::Copy('$(Configuration)').Contains('12'))">
 		<RvtVersion>2012</RvtVersion>
-		<TargetFramework>net48</TargetFramework>
+		<TargetFramework>net45</TargetFramework>
 	</PropertyGroup>
 	<PropertyGroup Condition="$([System.String]::Copy('$(Configuration)').Contains('13'))">
 		<RvtVersion>2013</RvtVersion>
-		<TargetFramework>net48</TargetFramework>
+		<TargetFramework>net45</TargetFramework>
 	</PropertyGroup>
 	<PropertyGroup Condition="$([System.String]::Copy('$(Configuration)').Contains('14'))">
 		<RvtVersion>2014</RvtVersion>
-		<TargetFramework>net48</TargetFramework>
+		<TargetFramework>net45</TargetFramework>
 	</PropertyGroup>
 	<PropertyGroup Condition="$([System.String]::Copy('$(Configuration)').Contains('15'))">
 		<RvtVersion>2015</RvtVersion>
-		<TargetFramework>net48</TargetFramework>
+		<TargetFramework>net45</TargetFramework>
 	</PropertyGroup>
 	<PropertyGroup Condition="$([System.String]::Copy('$(Configuration)').Contains('16'))">
 		<RvtVersion>2016</RvtVersion>
