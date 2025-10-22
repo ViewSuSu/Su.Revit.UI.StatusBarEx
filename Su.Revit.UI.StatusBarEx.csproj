@@ -31,27 +31,27 @@
 	</PropertyGroup>
 	<PropertyGroup Condition="$([System.String]::Copy('$(Configuration)').Contains('16'))">
 		<RvtVersion>2016</RvtVersion>
-		<TargetFramework>net48</TargetFramework>
+		<TargetFramework>net45</TargetFramework>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="$([System.String]::Copy('$(Configuration)').Contains('17'))">
 		<RvtVersion>2017</RvtVersion>
-		<TargetFramework>net48</TargetFramework>
+		<TargetFramework>net46</TargetFramework>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="$([System.String]::Copy('$(Configuration)').Contains('18'))">
 		<RvtVersion>2018</RvtVersion>
-		<TargetFramework>net48</TargetFramework>
+		<TargetFramework>net46</TargetFramework>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="$([System.String]::Copy('$(Configuration)').Contains('19'))">
 		<RvtVersion>2019</RvtVersion>
-		<TargetFramework>net48</TargetFramework>
+		<TargetFramework>net472</TargetFramework>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="$([System.String]::Copy('$(Configuration)').Contains('20'))">
 		<RvtVersion>2020</RvtVersion>
-		<TargetFramework>net48</TargetFramework>
+		<TargetFramework>net472</TargetFramework>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="$([System.String]::Copy('$(Configuration)').Contains('21'))">
