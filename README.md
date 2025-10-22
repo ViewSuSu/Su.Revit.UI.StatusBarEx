@@ -4,7 +4,7 @@
 
 ProgressBarExUtils 是一个专为Revit二次开发设计的进度条封装组件，基于 [ricaun.Revit.UI.StatusBar](https://github.com/ricaun-io/ricaun.Revit.UI.StatusBar) 进行拓展开发。
 
-由于原作者没有支持Revit 2018及以下版本的计划，本项目应运而生，为所有Revit用户提供统一的进度条体验。详细的使用方法参考原作者的.md文件。
+由于原作者没有支持Revit 2018及以下版本的计划，本项目应运而生
 
 ### 版本支持
 - ✅ Revit 2016
