@@ -15,7 +15,7 @@ namespace Su.Revit.UI.StatusBarEx.HighVersion.StatusBar.Utils
     internal class StatusBarController
     {
         private static Grid RootGrid;
-#if RVT_18 || RVT_18_D || RVT_17 || RVT_17_D || RVT_16 || RVT_16_D
+#if RVT_18 || RVT_18_D || RVT_17 || RVT_17_D || RVT_16 || RVT_16_D||RVT_15||RVT_15_D||RVT_14||RVT_14_D||RVT_13_D||RVT_13||RVT_12_D||RVT_12||RVT_11_D||RVT_11
 
 #else
         private static DialogBarControl InternalControl;
@@ -29,7 +29,7 @@ namespace Su.Revit.UI.StatusBarEx.HighVersion.StatusBar.Utils
 
         static StatusBarController()
         {
-#if RVT_18 || RVT_18_D || RVT_17 || RVT_17_D || RVT_16 || RVT_16_D
+#if RVT_18 || RVT_18_D || RVT_17 || RVT_17_D || RVT_16 || RVT_16_D||RVT_15||RVT_15_D||RVT_14||RVT_14_D||RVT_13_D||RVT_13||RVT_12_D||RVT_12||RVT_11_D||RVT_11
 
 #else
             RootGrid = VisualTreeHelperUtils.FindChild<Grid>(MainWindow.getMainWnd(), "rootGrid");
@@ -49,7 +49,7 @@ namespace Su.Revit.UI.StatusBarEx.HighVersion.StatusBar.Utils
         /// <param name="content"></param>
         public static void Show(FrameworkElement content)
         {
-#if RVT_18 || RVT_18_D || RVT_17 || RVT_17_D || RVT_16 || RVT_16_D
+#if RVT_18 || RVT_18_D || RVT_17 || RVT_17_D || RVT_16 || RVT_16_D||RVT_15||RVT_15_D||RVT_14||RVT_14_D||RVT_13_D||RVT_13||RVT_12_D||RVT_12||RVT_11_D||RVT_11
 
 #else
             InternalControl.Visibility = Visibility.Hidden;
@@ -68,7 +68,7 @@ namespace Su.Revit.UI.StatusBarEx.HighVersion.StatusBar.Utils
         /// </summary>
         public static void Hide()
         {
-#if RVT_18 || RVT_18_D || RVT_17 || RVT_17_D || RVT_16 || RVT_16_D
+#if RVT_18 || RVT_18_D || RVT_17 || RVT_17_D || RVT_16 || RVT_16_D||RVT_15||RVT_15_D||RVT_14||RVT_14_D||RVT_13_D||RVT_13||RVT_12_D||RVT_12||RVT_11_D||RVT_11
 
 #else
             InternalControl.Visibility = Visibility.Visible;

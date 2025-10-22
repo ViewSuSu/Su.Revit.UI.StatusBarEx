@@ -7,6 +7,11 @@
 由于原作者没有支持Revit 2018及以下版本的计划，本项目应运而生
 
 ### 版本支持
+- ✅ Revit 2011
+- ✅ Revit 2012
+- ✅ Revit 2013
+- ✅ Revit 2014
+- ✅ Revit 2015
 - ✅ Revit 2016
 - ✅ Revit 2017  
 - ✅ Revit 2018
