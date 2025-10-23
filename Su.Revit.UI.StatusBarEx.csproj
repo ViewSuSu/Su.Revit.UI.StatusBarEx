@@ -92,6 +92,9 @@
 		<PackageId>$(MSBuildProjectName)</PackageId>
 		<Version>$(RvtVersion).$(Version)</Version>
 		<PackageOutputPath>$(SolutionDir)\Nuget\$(MSBuildProjectName)\</PackageOutputPath>
+		<ProjectUrl>https://github.com/ViewSuSu/Su.Revit.UI.StatusBarEx</ProjectUrl>
+		<RepositoryUrl>https://github.com/ViewSuSu/Su.Revit.UI.StatusBarEx</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Revit_All_Main_Versions_API_x64" Version="$(RvtVersion).0.0"> </PackageReference>
