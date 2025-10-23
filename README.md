@@ -5,7 +5,9 @@
 专为Revit二次开发设计的进度条封装组件，基于 [ricaun.Revit.UI.StatusBar](https://github.com/ricaun-io/ricaun.Revit.UI.StatusBar) 进行拓展开发
 
 由于原作者没有支持Revit 2018及以下版本的计划,且不支持修改进度条样式和默认文本内容的等。
-为了适应国内Revit二次开发现状（绝大多数公司还在使用2020及以下版本，且UI界面交互必须是中文等)故本项目应运而生
+
+
+为了适应国内Revit二次开发现状（绝大多数公司还在使用2020及以下版本，且UI界面交互必须是中文等)，故本项目应运而生
 
 ### 版本支持
 - ✅ Revit 2011
@@ -43,8 +45,7 @@ ProgressBarExUtils.Run(
         // 对每个墙执行的操作
         wall.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS)
            ?.Set("已处理");
-    },
-    title: "处理墙元素"
+    }
 );
 
 ```
@@ -58,8 +59,7 @@ ProgressBarExUtils.Run(
     {
         // i 从 0 到 count-1
         Task.Delay(50).Wait(); // 模拟耗时操作
-    },
-    title: "整数循环演示"
+    }
 );
 );
 
@@ -67,30 +67,32 @@ ProgressBarExUtils.Run(
 ### 3.可取消的事务内循环（Transaction）
 ```csharp
 
-var walls = new FilteredElementCollector(doc)
-    .OfCategory(BuiltInCategory.OST_Walls)
-    .WhereElementIsNotElementType()
-    .Cast<Wall>();
-
-using (var tx = new Transaction(doc, "批量修改"))
-{
-    tx.Start();
-    ProgressBarExUtils.RunCancelable(
-        transaction: tx,
-        sources: walls,
-        loopAction: wall =>
-        {
-            wall.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS)
-               ?.Set("批量处理完成");
-        },
-        title: "可取消事务操作"
-    );
-
-    if (tx.GetStatus() == TransactionStatus.Started)
-    {
-        tx.Commit();
-    }
-}
+  UIApplication uiapp = commandData.Application;
+  Stopwatch stopwatch = new Stopwatch();
+  Document doc = uiapp.ActiveUIDocument.Document;
+  stopwatch.Start();
+  var walls = new FilteredElementCollector(doc)
+      .OfCategory(BuiltInCategory.OST_Walls)
+      .WhereElementIsNotElementType()
+      .Cast<Wall>();
+  using (var tx = new Transaction(doc, "批量修改"))
+  {
+      tx.Start();
+      ProgressBarExUtils.RunCancelable(
+          transaction: tx,
+          sources: walls,
+          loopAction: wall =>
+          {
+              Thread.Sleep(100);
+              wall.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS)
+                  ?.Set("批量处理完成");
+          }
+      );
+      if (tx.GetStatus() == TransactionStatus.Started)
+      {
+          tx.Commit();
+      }
+  }
 
 ```
 
@@ -112,8 +114,7 @@ using (var tg = new TransactionGroup(doc, "事务组批量处理"))
         {
           wall.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS)
                    ?.Set("事务组处理完成");
-        },
-        title: "事务组可取消处理"
+        }
     );
     tg.Assimilate(); // 合并事务组
 }
