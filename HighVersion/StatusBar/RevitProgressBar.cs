@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using Su.Revit.UI.StatusBarEx.Utils;
 
-namespace HYBIM.Revit.FrameworkBase.Utils.ProgressBar.HighVersion.StatusBar
+namespace Su.Revit.UI.StatusBarEx.HighVersion.StatusBar
 {
     /// <summary>
     /// RevitProgressBar
@@ -195,8 +196,7 @@ namespace HYBIM.Revit.FrameworkBase.Utils.ProgressBar.HighVersion.StatusBar
         {
             if (progressBarStackPanel.Data.CommandCancel is null)
             {
-                progressBarStackPanel.Data.CommandCancel =
-                    new Su.Revit.UI.StatusBarEx.HighVersion.StatusBar.Utils.RelayCommand(Cancel);
+                progressBarStackPanel.Data.CommandCancel = new RelayCommand(Cancel);
             }
             return cancelPressed;
         }
@@ -216,7 +216,7 @@ namespace HYBIM.Revit.FrameworkBase.Utils.ProgressBar.HighVersion.StatusBar
         /// </summary>
         public void Dispose()
         {
-            Su.Revit.UI.StatusBarEx.HighVersion.StatusBar.Utils.StatusBarController.Hide();
+            StatusBarController.Hide();
             stopwatch.Stop();
             RefreshBackground(true);
         }
@@ -243,9 +243,7 @@ namespace HYBIM.Revit.FrameworkBase.Utils.ProgressBar.HighVersion.StatusBar
             InitializeMilliseconds = 0;
             if (stopwatch.ElapsedMilliseconds > RefreshMilliseconds)
             {
-                Su.Revit.UI.StatusBarEx.HighVersion.StatusBar.Utils.StatusBarController.Show(
-                    progressBarStackPanel
-                );
+                StatusBarController.Show(progressBarStackPanel);
                 RefreshBackground(isRunningEnableRibbon);
                 stopwatch.Restart();
             }
@@ -257,11 +255,11 @@ namespace HYBIM.Revit.FrameworkBase.Utils.ProgressBar.HighVersion.StatusBar
             System.Windows.Forms.Application.DoEvents();
             if (enable)
             {
-                Su.Revit.UI.StatusBarEx.HighVersion.StatusBar.Utils.RevitRibbonController.Enable();
+                RevitRibbonController.Enable();
             }
             else
             {
-                Su.Revit.UI.StatusBarEx.HighVersion.StatusBar.Utils.RevitRibbonController.Disable();
+                RevitRibbonController.Disable();
             }
         }
     }

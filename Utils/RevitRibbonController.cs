@@ -1,6 +1,6 @@
 ﻿using UIFramework;
 
-namespace Su.Revit.UI.StatusBarEx.HighVersion.StatusBar.Utils
+namespace Su.Revit.UI.StatusBarEx.Utils
 {
     /// <summary>
     /// RevitRibbonController

@@ -1,10 +1,10 @@
 # 最好用的Revit进度条封装！
-![输入图片说明](QQ20251023-92127-HD.gif)
+![常规用法](HD.gif) ![取消进度条用法](Cancel-HD.gif)
 ## 项目介绍
 
 专为Revit二次开发设计的进度条封装组件，基于 [ricaun.Revit.UI.StatusBar](https://github.com/ricaun-io/ricaun.Revit.UI.StatusBar) 进行拓展开发
 
-由于原作者没有支持Revit 2018及以下版本的计划，那是因为：18及以下版本Revit的内容都是以Form的形式存在的，而18以上才以WPF窗口承载。故本项目应运而生
+由于原作者没有支持Revit 2018及以下版本的计划,且不支持修改进度条样式和默认文本内容的等。为了适应国内Revit二次开发现状（绝大多数公司都在使用2020及以下版本，且界面要求全中文等)故本项目应运而生
 
 ### 版本支持
 - ✅ Revit 2011

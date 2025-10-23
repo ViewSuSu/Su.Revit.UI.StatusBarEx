@@ -7,7 +7,7 @@ using UIFramework;
 using Grid = System.Windows.Controls.Grid;
 using Visibility = System.Windows.Visibility;
 
-namespace Su.Revit.UI.StatusBarEx.HighVersion.StatusBar.Utils
+namespace Su.Revit.UI.StatusBarEx.Utils
 {
     /// <summary>
     /// StatusBarController
