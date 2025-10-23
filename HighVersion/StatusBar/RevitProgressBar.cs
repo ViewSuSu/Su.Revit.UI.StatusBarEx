@@ -18,12 +18,13 @@ namespace Su.Revit.UI.StatusBarEx.HighVersion.StatusBar
         /// RevitProgressBar
         /// </summary>
         /// <param name="hasCancelButton"></param>
-        public RevitProgressBar(bool hasCancelButton = false)
+        public RevitProgressBar(bool hasCancelButton, ProgressBarExOptions progressBarExOptions)
         {
             stopwatch = Stopwatch.StartNew();
             progressBarStackPanel =
                 new Su.Revit.UI.StatusBarEx.HighVersion.StatusBar.Controls.ProgressBarStackPanel(
-                    hasCancelButton
+                    hasCancelButton,
+                    progressBarExOptions
                 );
 #if RVT_18 || RVT_18_D || RVT_17 || RVT_17_D || RVT_16 || RVT_16_D||RVT_15||RVT_15_D||RVT_14||RVT_14_D||RVT_13_D||RVT_13||RVT_12_D||RVT_12||RVT_11_D||RVT_11
 
@@ -119,73 +120,6 @@ namespace Su.Revit.UI.StatusBarEx.HighVersion.StatusBar
             return this;
         }
 
-        /// <summary>
-        /// SetCurrentValue
-        /// </summary>
-        /// <param name="currentValue"></param>
-        /// <returns></returns>
-        public RevitProgressBar SetCurrentValue(double currentValue)
-        {
-            progressBarStackPanel.Data.CurrentValue = currentValue;
-            return this;
-        }
-
-        /// <summary>
-        /// SetMinimumValue
-        /// </summary>
-        /// <param name="minimumValue"></param>
-        /// <returns></returns>
-        public RevitProgressBar SetMinimumValue(double minimumValue)
-        {
-            progressBarStackPanel.Data.MinimumValue = minimumValue;
-            return this;
-        }
-
-        /// <summary>
-        /// SetMaximumValue
-        /// </summary>
-        /// <param name="maximumValue"></param>
-        /// <returns></returns>
-        public RevitProgressBar SetMaximumValue(double maximumValue)
-        {
-            progressBarStackPanel.Data.MaximumValue = maximumValue;
-            return this;
-        }
-
-        /// <summary>
-        /// SetIsIndeterminate
-        /// </summary>
-        /// <param name="isIndeterminate"></param>
-        /// <returns></returns>
-        public RevitProgressBar SetIsIndeterminate(bool isIndeterminate)
-        {
-            progressBarStackPanel.Data.IsIndeterminate = isIndeterminate;
-            return this;
-        }
-
-        /// <summary>
-        /// SetHasCancelButton
-        /// </summary>
-        /// <param name="hasCancelButton"></param>
-        /// <returns></returns>
-        public RevitProgressBar SetHasCancelButton(bool hasCancelButton)
-        {
-            progressBarStackPanel.Data.HasCancelButton = hasCancelButton;
-            return this;
-        }
-
-        /// <summary>
-        /// Increment
-        /// </summary>
-        /// <param name="incrementCurrentValue"></param>
-        /// <returns></returns>
-        public RevitProgressBar Increment(int incrementCurrentValue = 1)
-        {
-            progressBarStackPanel.Data.CurrentValue += incrementCurrentValue;
-            RefreshStopwatchBackground();
-            return this;
-        }
-
         private bool cancelPressed { get; set; } = false;
 
         /// <summary>
@@ -208,8 +142,6 @@ namespace Su.Revit.UI.StatusBarEx.HighVersion.StatusBar
         {
             cancelPressed = true;
         }
-
-        private bool ForceToRefresh;
 
         /// <summary>
         /// Dispose

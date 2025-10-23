@@ -8,6 +8,9 @@ using Su.Revit.UI.StatusBarEx.LowVersion.Forms;
 
 namespace Su.Revit.UI.StatusBarEx
 {
+    /// <summary>
+    /// 进度条设置
+    /// </summary>
     public class ProgressBarExOptions
     {
         /// <summary>
@@ -44,24 +47,19 @@ namespace Su.Revit.UI.StatusBarEx
             ProgressBarExOptions progressBarExOptions = null
         )
         {
-#if RVT_18 || RVT_18_D || RVT_17 || RVT_17_D || RVT_16 || RVT_16_D||RVT_15||RVT_15_D||RVT_14||RVT_14_D||RVT_13_D||RVT_13||RVT_12_D||RVT_12||RVT_11_D||RVT_11
-            ProgressBarInetnalUtils.Run(
-                elements,
-                loopAction,
-                progressBarExOptions.Title,
-                progressBarExOptions.IsRunningEnableRibbon
-            );
+            var options = progressBarExOptions ?? new ProgressBarExOptions();
+#if RVT_18 || RVT_18_D || RVT_17 || RVT_17_D || RVT_16 || RVT_16_D || RVT_15 || RVT_15_D || RVT_14 || RVT_14_D || RVT_13_D || RVT_13 || RVT_12_D || RVT_12 || RVT_11_D || RVT_11
+            ProgressBarInetnalUtils.Run(elements, loopAction, options);
 #else
-            using var revitProgressBar = new RevitProgressBar();
+            using var revitProgressBar = new RevitProgressBar(false, options);
             revitProgressBar.Run(
-                progressBarExOptions.Title,
+                options.Title,
                 elements,
                 (element) =>
                 {
-                    //  Task.Delay(new Random().Next(50, maxValue: 200));
                     loopAction?.Invoke(element);
                 },
-                progressBarExOptions.IsRunningEnableRibbon
+                options.IsRunningEnableRibbon
             );
 #endif
         }
@@ -82,11 +80,14 @@ namespace Su.Revit.UI.StatusBarEx
             ProgressBarInetnalUtils.Run(
                 Enumerable.Range(0, count),
                 loopAction,
-                progressBarExOptions.Title,
-                progressBarExOptions.IsRunningEnableRibbon
+                progressBarExOptions ?? new ProgressBarExOptions()
             );
 #else
-            Run(Enumerable.Range(0, count), loopAction, progressBarExOptions);
+            Run(
+                Enumerable.Range(0, count),
+                loopAction,
+                progressBarExOptions ?? new ProgressBarExOptions()
+            );
 #endif
         }
 
@@ -105,21 +106,21 @@ namespace Su.Revit.UI.StatusBarEx
             ProgressBarExOptions progressBarExOptions = null
         )
         {
-#if RVT_18 || RVT_18_D || RVT_17 || RVT_17_D || RVT_16 || RVT_16_D||RVT_15||RVT_15_D||RVT_14||RVT_14_D||RVT_13_D||RVT_13||RVT_12_D||RVT_12||RVT_11_D||RVT_11
+#if RVT_18 || RVT_18_D || RVT_17 || RVT_17_D || RVT_16 || RVT_16_D || RVT_15 || RVT_15_D || RVT_14 || RVT_14_D || RVT_13_D || RVT_13 || RVT_12_D || RVT_12 || RVT_11_D || RVT_11
             ProgressBarInetnalUtils.RunCancelable(
                 transaction,
                 sources,
                 loopAction,
-                progressBarExOptions.Title,
-                progressBarExOptions.IsRunningEnableRibbon
+                progressBarExOptions ?? new ProgressBarExOptions()
             );
 #else
-            using var revitProgressBar = new RevitProgressBar(true);
+            var options = progressBarExOptions ?? new ProgressBarExOptions();
+            using var revitProgressBar = new RevitProgressBar(true, options);
             revitProgressBar.Run(
-                progressBarExOptions.Title,
+                options.Title,
                 sources,
                 loopAction.Invoke,
-                progressBarExOptions.IsRunningEnableRibbon
+                options.IsRunningEnableRibbon
             );
             if (
                 revitProgressBar.IsCancelling()
@@ -146,25 +147,16 @@ namespace Su.Revit.UI.StatusBarEx
             ProgressBarExOptions progressBarExOptions = null
         )
         {
+            var options = progressBarExOptions ?? new ProgressBarExOptions();
 #if RVT_18 || RVT_18_D || RVT_17 || RVT_17_D || RVT_16 || RVT_16_D||RVT_15||RVT_15_D||RVT_14||RVT_14_D||RVT_13_D||RVT_13||RVT_12_D||RVT_12||RVT_11_D||RVT_11
-            ProgressBarInetnalUtils.RunCancelable(
-                transactionGroup,
-                sources,
-                loopAction,
-                progressBarExOptions.Title,
-                progressBarExOptions.IsRunningEnableRibbon
-            );
+            ProgressBarInetnalUtils.RunCancelable(transactionGroup, sources, loopAction, options);
 #else
-            using var revitProgressBar = new RevitProgressBar(true);
+            using var revitProgressBar = new RevitProgressBar(true, options);
             revitProgressBar.Run(
-                progressBarExOptions.Title,
+                options.Title,
                 sources,
-                t =>
-                {
-                    //  Task.Delay(new Random().Next(50, maxValue: 200));
-                    loopAction.Invoke(t);
-                },
-                progressBarExOptions.IsRunningEnableRibbon
+                loopAction.Invoke,
+                options.IsRunningEnableRibbon
             );
             if (revitProgressBar.IsCancelling())
             {
@@ -179,28 +171,30 @@ namespace Su.Revit.UI.StatusBarEx
         public static void Run<T>(
             IEnumerable<T> sources,
             Action<T> loopAction,
-            string title = "title",
-            bool isRunningEnableRibbon = false
+            ProgressBarExOptions progressBarExOptions
         )
         {
             IEnumerable<object> objectSources = sources.Cast<object>();
-            Action<object> action = (obj) =>
-            {
-                if (obj is T typedObj)
-                {
-                    loopAction(typedObj);
-                }
-            };
             using var panel = new ControlPanel(
                 objectSources,
                 o =>
                 {
                     DPCreator.TopMost();
-                    action?.Invoke(o);
+                    (
+                        (Action<object>)(
+                            (obj) =>
+                            {
+                                if (obj is T typedObj)
+                                {
+                                    loopAction(typedObj);
+                                }
+                            }
+                        )
+                    )?.Invoke(o);
                 },
                 DPCreator.Close,
-                title,
-                false
+                false,
+                progressBarExOptions
             );
             DPCreator.Create(panel);
             DPCreator.Show();
@@ -211,8 +205,7 @@ namespace Su.Revit.UI.StatusBarEx
             Transaction transaction,
             IEnumerable<T> sources,
             Action<T> loopAction,
-            string title = "title",
-            bool isRunningEnableRibbon = false
+            ProgressBarExOptions progressBarExOptions
         )
         {
             IEnumerable<object> objectSources = sources.Cast<object>();
@@ -232,8 +225,8 @@ namespace Su.Revit.UI.StatusBarEx
                     action?.Invoke(o);
                 },
                 DPCreator.Close,
-                title,
-                true
+                true,
+                progressBarExOptions
             );
             DPCreator.Create(panel);
             DPCreator.Show();
@@ -244,8 +237,7 @@ namespace Su.Revit.UI.StatusBarEx
             TransactionGroup transactionGroup,
             IEnumerable<T> sources,
             Action<T> loopAction,
-            string title = "title",
-            bool isRunningEnableRibbon = false
+            ProgressBarExOptions progressBarExOptions
         )
         {
             IEnumerable<object> objectSources = sources.Cast<object>();
@@ -265,8 +257,8 @@ namespace Su.Revit.UI.StatusBarEx
                     action?.Invoke(o);
                 },
                 DPCreator.Close,
-                title,
-                true
+                true,
+                progressBarExOptions
             );
             DPCreator.Create(panel);
             DPCreator.Show();

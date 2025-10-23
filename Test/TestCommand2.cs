@@ -33,11 +33,10 @@ namespace Su.Revit.UI.StatusBarEx.Test
                     sources: walls,
                     loopAction: wall =>
                     {
-                        Thread.Sleep(1);
+                        Thread.Sleep(100);
                         wall.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS)
                             ?.Set("批量处理完成");
-                    },
-                    title: "可取消事务操作"
+                    }
                 );
                 if (tx.GetStatus() == TransactionStatus.Started)
                 {

@@ -25,20 +25,19 @@ namespace Su.Revit.UI.StatusBarEx.LowVersion.Forms
             IEnumerable<Object> objects,
             Action<Object> action,
             Action stopAction,
-            string title,
-            bool hasCancelButton = true,
-            bool IsRunningEnableRibbon = false
+            bool hasCancelButton,
+            ProgressBarExOptions progressBarExOptions
         )
         {
             _hasCancelButton = hasCancelButton;
-            this.IsRunningEnableRibbon = IsRunningEnableRibbon;
+            this.IsRunningEnableRibbon = progressBarExOptions.IsRunningEnableRibbon;
             InitializeComponent();
             InitializeProgressBar();
-            this.text.Text = title;
+            this.text.Text = progressBarExOptions.Title;
             this.objects = objects;
             this.action = action;
             this.stopAction = stopAction;
-
+            this.button1.Text = progressBarExOptions.CancelButtonText;
             // 根据参数设置按钮可见性
             UpdateButtonVisibility();
             this.Disposed += ControlPanel_Disposed;
@@ -54,10 +53,10 @@ namespace Su.Revit.UI.StatusBarEx.LowVersion.Forms
             IEnumerable<object> objects,
             Action<object> action,
             Action stopAction,
-            string title,
-            bool hasCancelButton = true
+            bool hasCancelButton,
+            ProgressBarExOptions progressBarExOptions
         )
-            : this(objects, action, stopAction, title, hasCancelButton)
+            : this(objects, action, stopAction, hasCancelButton, progressBarExOptions)
         {
             this.transaction = transaction;
         }
@@ -67,10 +66,10 @@ namespace Su.Revit.UI.StatusBarEx.LowVersion.Forms
             IEnumerable<object> objects,
             Action<object> action,
             Action stopAction,
-            string title,
-            bool hasCancelButton = true
+            bool hasCancelButton,
+            ProgressBarExOptions progressBarExOptions
         )
-            : this(objects, action, stopAction, title, hasCancelButton)
+            : this(objects, action, stopAction, hasCancelButton, progressBarExOptions)
         {
             this.transactionGroup = transactionGroup;
         }

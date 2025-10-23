@@ -14,45 +14,16 @@ namespace Su.Revit.UI.StatusBarEx.HighVersion.StatusBar.Controls
         /// <summary>
         /// ProgressBarStackPanel
         /// </summary>
-        public ProgressBarStackPanel()
-        {
-            Initialize();
-        }
-
-        /// <summary>
-        /// ProgressBarStackPanel
-        /// </summary>
         /// <param name="hasCancelButton"></param>
-        public ProgressBarStackPanel(bool hasCancelButton)
+        public ProgressBarStackPanel(
+            bool hasCancelButton,
+            ProgressBarExOptions progressBarExOptions
+        )
         {
             Data.HasCancelButton = hasCancelButton;
+            Data.CancelButtonText = progressBarExOptions.CancelButtonText;
+            Data.CurrentOperation = progressBarExOptions.Title;
             Initialize();
-        }
-
-        /// <summary>
-        /// ProgressBarStackPanel
-        /// </summary>
-        /// <param name="hasCancelButton"></param>
-        /// <param name="minimumValue"></param>
-        /// <param name="maximumValue"></param>
-        public ProgressBarStackPanel(bool hasCancelButton, double minimumValue, double maximumValue)
-        {
-            Data.HasCancelButton = hasCancelButton;
-            Data.CurrentValue = minimumValue;
-            Data.MinimumValue = minimumValue;
-            Data.MaximumValue = maximumValue;
-            Initialize();
-        }
-
-        /// <summary>
-        /// SetCurrentOperation
-        /// </summary>
-        /// <param name="currentOperation"></param>
-        /// <returns></returns>
-        public ProgressBarStackPanel SetCurrentOperation(string currentOperation)
-        {
-            Data.CurrentOperation = currentOperation;
-            return this;
         }
 
         private void Initialize()
@@ -71,6 +42,7 @@ namespace Su.Revit.UI.StatusBarEx.HighVersion.StatusBar.Controls
             private double _maximumValue = 100;
             private ICommand _commandCancel;
             private bool _hasCancelButton = false;
+            private string cancelButtonText = "取消";
 
             /// <summary>
             /// IsIndeterminate
@@ -101,6 +73,19 @@ namespace Su.Revit.UI.StatusBarEx.HighVersion.StatusBar.Controls
                         _currentOperation = value;
                         OnPropertyChanged();
                     }
+                }
+            }
+
+            /// <summary>
+            /// 取消
+            /// </summary>
+            public string CancelButtonText
+            {
+                get { return cancelButtonText; }
+                set
+                {
+                    cancelButtonText = value;
+                    OnPropertyChanged();
                 }
             }
 
