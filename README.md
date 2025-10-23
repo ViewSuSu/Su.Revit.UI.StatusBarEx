@@ -4,7 +4,7 @@
 
 专为Revit二次开发设计的进度条封装组件，基于 [ricaun.Revit.UI.StatusBar](https://github.com/ricaun-io/ricaun.Revit.UI.StatusBar) 进行拓展开发
 
-由于原作者没有支持Revit 2018及以下版本的计划，本项目应运而生
+由于原作者没有支持Revit 2018及以下版本的计划，那是因为：18及以下版本Revit的内容都是以Form的形式存在的，而18以上才以WPF窗口承载。故本项目应运而生
 
 ### 版本支持
 - ✅ Revit 2011
