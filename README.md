@@ -48,6 +48,30 @@
 
 ---
 
+## 🧩 安装方法
+
+### 方法一：Package Manager 控制台
+
+```powershell
+# 根据你的 Revit 版本选择对应的包
+Install-Package Su.Revit.UI.StatusBarEx.2018 -Version 1.0.0
+Install-Package Su.Revit.UI.StatusBarEx.2019 -Version 1.0.0
+Install-Package Su.Revit.UI.StatusBarEx.2020 -Version 1.0.0
+```
+### 方法二：.NET CLI
+```bash
+dotnet add package Su.Revit.UI.StatusBarEx.2018 --version 1.0.0
+dotnet add package Su.Revit.UI.StatusBarEx.2019 --version 1.0.0
+dotnet add package Su.Revit.UI.StatusBarEx.2020 --version 1.0.0
+```
+### 方法三：Visual Studio NuGet 包管理器
+```bash
+1.右键点击项目 → 管理 NuGet 程序包
+2.在浏览选项卡中搜索：Su.Revit.UI.StatusBarEx
+3.选择适合你 Revit 版本的包进行安装
+```
+
+
 ## 🪄 使用方法
 
 ### 1️⃣ 基础用法 —— 遍历集合元素
