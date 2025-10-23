@@ -67,10 +67,6 @@ ProgressBarExUtils.Run(
 ### 3.可取消的事务内循环（Transaction）
 ```csharp
 
-  UIApplication uiapp = commandData.Application;
-  Stopwatch stopwatch = new Stopwatch();
-  Document doc = uiapp.ActiveUIDocument.Document;
-  stopwatch.Start();
   var walls = new FilteredElementCollector(doc)
       .OfCategory(BuiltInCategory.OST_Walls)
       .WhereElementIsNotElementType()
