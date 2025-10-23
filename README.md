@@ -1,5 +1,5 @@
 # 最好用的Revit进度条封装！
-
+![输入图片说明](QQ20251023-92127-HD.gif)
 ## 项目介绍
 
 专为Revit二次开发设计的进度条封装组件，基于 [ricaun.Revit.UI.StatusBar](https://github.com/ricaun-io/ricaun.Revit.UI.StatusBar) 进行拓展开发
