@@ -1,7 +1,4 @@
 
-
----
-
 # 🚀 The Best Revit Progress Bar Wrapper Component!
 
 ![Default Usage](HD.gif) ![Cancelable Usage](Cancel-HD.gif)
