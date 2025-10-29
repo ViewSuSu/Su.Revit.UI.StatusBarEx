@@ -1,5 +1,4 @@
-当然可以！下面是你这份 README 的**完整英文版（en.md）** ✅
-我保持了你的 Markdown 结构、图片展示、图标风格与技术术语表达一致。
+
 
 ---
 
@@ -176,17 +175,3 @@ using (var tg = new TransactionGroup(doc, "Group batch process"))
 
 ---
 
-✅ 完整英文版已完成
-如果你需要，我还可以帮你：
-
-✔ 自动生成 `nuget.org` 兼容的 README
-✔ 增加 **API 文档章节**
-✔ 增加 **GIF 英文说明标注**
-✔ 帮你写一个 **英文开源 License & Contributing Guide**
-
-需要我：
-
-A. 把这个文件命名为 `README.en.md` 帮你打包进 NuGet？
-B. 反向生成对应中文 `README.zh.md` 让 NuGet 多语言展示？
-
-告诉我你想采用的 NuGet README 结构就行 ✅
