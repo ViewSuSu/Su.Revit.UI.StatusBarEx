@@ -1,65 +1,76 @@
+```markdown
+# 📦 Repository Information
 
-# 🚀 The Best Revit Progress Bar Wrapper Component!
+**NuGet:** [https://www.nuget.org/packages/Su.Revit.UI.StatusBarEx](https://www.nuget.org/packages/Su.Revit.UI.StatusBarEx)
 
-![Default Usage](HD.gif) ![Cancelable Usage](Cancel-HD.gif)
+**Gitee:** [https://gitee.com/SususuChang/status-bar-ex](https://gitee.com/SususuChang/status-bar-ex)
+
+**GitHub:** [https://github.com/SususuChang/status-bar-ex](https://github.com/SususuChang/status-bar-ex)
+
+---
+
+# 🚀 The Best Revit Progress Bar Component!
+
+![Regular Usage](HD.gif) ![Cancel Progress Bar Usage](Cancel-HD.gif)
 
 ---
 
 ## 🧩 Project Introduction
 
-This project is a **progress bar wrapper component designed specifically for Revit add-in development**,
-extended from the open-source project:
-👉 [ricaun.Revit.UI.StatusBar](https://github.com/ricaun-io/ricaun.Revit.UI.StatusBar)
+This project is **a progress bar component specifically designed for Revit secondary development**,
+extended based on the original open-source project [ricaun.Revit.UI.StatusBar](https://github.com/ricaun-io/ricaun.Revit.UI.StatusBar).
 
-Since the original author does not plan to support **Revit 2018 and earlier**,
-nor allow customization of progress bar style or default text,
-and considering that **many developers in China still need Revit 2020 and below** with **Chinese UI support**,
-this enhanced version was born 🚀
+Since the original author didn't plan to support **Revit 2018 and earlier versions**, and didn't support modifying progress bar styles or default text,
+to adapt to **the current state of Revit secondary development in China (still commonly using versions below 2020, with requirements for Chinese UI)**,
+this project was born 🚀
 
 ---
 
 ## ✨ New Features
 
-| Feature                             | Description                                                                                                                  |
-| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| ✅ **Supports older Revit versions** | Added support for **Revit 2011 – Revit 2026**                                                                                |
-| 🎯 **UI optimization**              | Progress bar displayed **right under the Ribbon** for better workflow integration                                            |
-| 🧰 **Customizable styles**          | Accepts `Options` to customize styles like: color, text, size, etc. (currently only supports changing Cancel button content) |
+| Feature | Description |
+| :--- | :--- |
+| ✅ **Support for Older Revit Versions** | Added support for **Revit 2011 - Revit 2026** full series |
+| 🎯 **UI Optimization** | Progress bar position adjusted to **below the Ribbon**, more integrated with Revit operation experience |
+| 🧰 **Customizable Styles** | Supports passing `Options` parameters to customize progress bar styles such as: colors, text, dimensions, etc. (currently only supports cancel button Content) |
 
 ---
 
 ## 🧱 Version Support
 
-| Revit Version | Status |
-| ------------- | ------ |
-| 2011–2016     | ✅      |
-| 2017          | ✅      |
-| 2018          | ✅      |
-| 2019          | ✅      |
-| 2020          | ✅      |
-| 2021          | ✅      |
-| 2022          | ✅      |
-| 2023          | ✅      |
-| 2024          | ✅      |
-| 2025          | ✅      |
-| 2026          | ✅      |
-
-> ✅ Fully compatible across all listed versions
+| Revit Version | Support Status |
+| :--- | :---: |
+| 2011 | ✅ |
+| 2012 | ✅ |
+| 2013 | ✅ |
+| 2014 | ✅ |
+| 2015 | ✅ |
+| 2016 | ✅ |
+| 2017 | ✅ |
+| 2018 | ✅ |
+| 2019 | ✅ |
+| 2020 | ✅ |
+| 2021 | ✅ |
+| 2022 | ✅ |
+| 2023 | ✅ |
+| 2024 | ✅ |
+| 2025 | ✅ |
+| 2026 | ✅ |
 
 ---
 
-## 🔧 Installation
+## 🧩 Installation Methods
 
-### Option 1 — Package Manager Console
+### Method 1: Package Manager Console
 
 ```powershell
-# Select the package matching your Revit version
+# Choose the appropriate package according to your Revit version
 Install-Package Su.Revit.UI.StatusBarEx.2018 -Version 1.0.0
 Install-Package Su.Revit.UI.StatusBarEx.2019 -Version 1.0.0
 Install-Package Su.Revit.UI.StatusBarEx.2020 -Version 1.0.0
 ```
 
-### Option 2 — .NET CLI
+### Method 2: .NET CLI
 
 ```bash
 dotnet add package Su.Revit.UI.StatusBarEx.2018 --version 1.0.0
@@ -67,23 +78,22 @@ dotnet add package Su.Revit.UI.StatusBarEx.2019 --version 1.0.0
 dotnet add package Su.Revit.UI.StatusBarEx.2020 --version 1.0.0
 ```
 
-### Option 3 — Visual Studio NuGet Package Manager
+### Method 3: Visual Studio NuGet Package Manager
 
-```bash
-1. Right-click your project → Manage NuGet Packages
-2. Go to **Browse** tab
-3. Search: Su.Revit.UI.StatusBarEx
-4. Install the package matching your Revit version
+```
+1. Right-click project → Manage NuGet Packages
+2. Search for: Su.Revit.UI.StatusBarEx in Browse tab
+3. Install the package suitable for your Revit version
 ```
 
 ---
 
-## 🪄 Usage Examples
+## 🪄 Usage Methods
 
-### 1️⃣ Basic usage — iterate over elements
+### 1️⃣ Basic Usage - Iterating Collection Elements
 
 ```csharp
-// Example: Batch process wall elements
+// Example: Batch processing wall elements
 var walls = new FilteredElementCollector(doc)
     .OfCategory(BuiltInCategory.OST_Walls)
     .WhereElementIsNotElementType()
@@ -101,7 +111,7 @@ ProgressBarExUtils.Run(
 
 ---
 
-### 2️⃣ Loop with integer count
+### 2️⃣ Using Integer Count Loop
 
 ```csharp
 int count = 50;
@@ -110,14 +120,14 @@ ProgressBarExUtils.Run(
     loopAction: i =>
     {
         // i from 0 to count-1
-        Task.Delay(50).Wait(); // Simulate time-consuming work
+        Task.Delay(50).Wait(); // Simulate time-consuming operation
     }
 );
 ```
 
 ---
 
-### 3️⃣ Cancelable loop inside a Transaction
+### 3️⃣ Cancelable Loop within Transaction
 
 ```csharp
 var walls = new FilteredElementCollector(doc)
@@ -125,7 +135,7 @@ var walls = new FilteredElementCollector(doc)
     .WhereElementIsNotElementType()
     .Cast<Wall>();
 
-using (var tx = new Transaction(doc, "Batch modify"))
+using (var tx = new Transaction(doc, "Batch Modification"))
 {
     tx.Start();
     ProgressBarExUtils.RunCancelable(
@@ -135,18 +145,19 @@ using (var tx = new Transaction(doc, "Batch modify"))
         {
             Thread.Sleep(100);
             wall.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS)
-                ?.Set("Batch updated");
+                ?.Set("Batch Processing Completed");
         }
     );
-
     if (tx.GetStatus() == TransactionStatus.Started)
+    {
         tx.Commit();
+    }
 }
 ```
 
 ---
 
-### 4️⃣ Cancelable loop inside a TransactionGroup
+### 4️⃣ Cancelable Loop within TransactionGroup
 
 ```csharp
 var walls = new FilteredElementCollector(doc)
@@ -154,21 +165,18 @@ var walls = new FilteredElementCollector(doc)
     .WhereElementIsNotElementType()
     .Cast<Wall>();
 
-using (var tg = new TransactionGroup(doc, "Group batch process"))
+using (var tg = new TransactionGroup(doc, "Transaction Group Batch Processing"))
 {
     tg.Start();
     ProgressBarExUtils.RunCancelable(
         transactionGroup: tg,
         sources: walls,
         loopAction: wall =>
-        {
-            wall.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS)
-                ?.Set("Processed in group");
-        }
+    {
+        wall.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS)
+            ?.Set("Transaction Group Processing Completed");
+    }
     );
-    tg.Assimilate(); // Merge transactions
+    tg.Assimilate(); // Merge transaction group
 }
 ```
-
----
-
