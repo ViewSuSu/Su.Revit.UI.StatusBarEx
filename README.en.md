@@ -11,7 +11,7 @@
 
 # 🚀 The Best Revit Progress Bar Component!
 
-![Regular Usage](HD.gif) ![Cancel Progress Bar Usage](Cancel-HD.gif)
+![常规用法](HD.gif) ![取消进度条用法](Cancel-HD.gif)
 
 ---
 
