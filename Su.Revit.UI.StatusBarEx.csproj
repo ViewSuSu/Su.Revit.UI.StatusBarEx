@@ -86,8 +86,8 @@
 	<PropertyGroup Condition="!$([System.String]::Copy('$(Configuration)').Contains('D'))">
 		<PackageId>$(MSBuildProjectName)</PackageId>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<PackageDescription>Revit二次开发进度条封装组件，基于ricaun.Revit.UI.StatusBar进行拓展开发</PackageDescription>
-		<PackageTags>Revit;Revit-API;ProgressBar;StatusBar</PackageTags>
+		<PackageDescription>The best Revit progressbar ! An extension based on ricaun.Revit.UI.StatusBar, supporting Revit 2011 through Revit 2026.</PackageDescription>
+		<PackageTags>Revit;Revit-API;ProgressBar;StatusBar;C#;.NET</PackageTags>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Version>$(RvtVersion).$(Version)</Version>
 		<PackageOutputPath>$(SolutionDir)\Nuget\$(MSBuildProjectName)\</PackageOutputPath>
