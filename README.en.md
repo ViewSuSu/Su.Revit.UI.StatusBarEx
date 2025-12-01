@@ -1,4 +1,6 @@
-```markdown
+![Version](https://img.shields.io/badge/Support-Revit%202011~2026-blueviolet)
+![License](https://img.shields.io/badge/license-MIT-green)
+
 # 📦 Repository Information
 
 **NuGet:** [https://www.nuget.org/packages/Su.Revit.UI.StatusBarEx](https://www.nuget.org/packages/Su.Revit.UI.StatusBarEx)
@@ -17,11 +19,11 @@
 
 ## 🧩 Project Introduction
 
-This project is **a progress bar component specifically designed for Revit secondary development**,
-extended based on the original open-source project [ricaun.Revit.UI.StatusBar](https://github.com/ricaun-io/ricaun.Revit.UI.StatusBar).
+This project is **a progress bar encapsulation component specifically designed for Revit secondary development**,
+based on the original open-source project [ricaun.Revit.UI.StatusBar](https://github.com/ricaun-io/ricaun.Revit.UI.StatusBar) with extended development.
 
-Since the original author didn't plan to support **Revit 2018 and earlier versions**, and didn't support modifying progress bar styles or default text,
-to adapt to **the current state of Revit secondary development in China (still commonly using versions below 2020, with requirements for Chinese UI)**,
+Since the original author did not plan to support **Revit 2018 and earlier versions**, and did not support modifying progress bar styles or default text,
+to adapt to **the current situation of Revit secondary development in China (where versions below 2020 are still widely used, and Chinese UI is required)**,
 this project was born 🚀
 
 ---
@@ -32,30 +34,9 @@ this project was born 🚀
 | :--- | :--- |
 | ✅ **Support for Older Revit Versions** | Added support for **Revit 2011 - Revit 2026** full series |
 | 🎯 **UI Optimization** | Progress bar position adjusted to **below the Ribbon**, more integrated with Revit operation experience |
-| 🧰 **Customizable Styles** | Supports passing `Options` parameters to customize progress bar styles such as: colors, text, dimensions, etc. (currently only supports cancel button Content) |
-
----
-
-## 🧱 Version Support
-
-| Revit Version | Support Status |
-| :--- | :---: |
-| 2011 | ✅ |
-| 2012 | ✅ |
-| 2013 | ✅ |
-| 2014 | ✅ |
-| 2015 | ✅ |
-| 2016 | ✅ |
-| 2017 | ✅ |
-| 2018 | ✅ |
-| 2019 | ✅ |
-| 2020 | ✅ |
-| 2021 | ✅ |
-| 2022 | ✅ |
-| 2023 | ✅ |
-| 2024 | ✅ |
-| 2025 | ✅ |
-| 2026 | ✅ |
+| 🧰 **Customizable Styles** | Supports passing `Options` parameters to customize progress bar styles such as: color, text, size, etc. (currently only supports cancel button Content) |
+| 🔄 **Cancel Operation Support** | Supports canceling execution during long operations, improving user experience |
+| 🌐 **Multi-platform Support** | Supports both Gitee and GitHub code hosting |
 
 ---
 
@@ -64,10 +45,11 @@ this project was born 🚀
 ### Method 1: Package Manager Console
 
 ```powershell
-# Choose the appropriate package according to your Revit version
+# Choose the corresponding package according to your Revit version
 Install-Package Su.Revit.UI.StatusBarEx.2018 -Version 1.0.0
 Install-Package Su.Revit.UI.StatusBarEx.2019 -Version 1.0.0
 Install-Package Su.Revit.UI.StatusBarEx.2020 -Version 1.0.0
+# More versions please check NuGet page
 ```
 
 ### Method 2: .NET CLI
@@ -90,7 +72,7 @@ dotnet add package Su.Revit.UI.StatusBarEx.2020 --version 1.0.0
 
 ## 🪄 Usage Methods
 
-### 1️⃣ Basic Usage - Iterating Collection Elements
+### 1️⃣ Basic Usage - Iterating Through Collection Elements
 
 ```csharp
 // Example: Batch processing wall elements
@@ -127,7 +109,7 @@ ProgressBarExUtils.Run(
 
 ---
 
-### 3️⃣ Cancelable Loop within Transaction
+### 3️⃣ Cancelable Transaction Loop
 
 ```csharp
 var walls = new FilteredElementCollector(doc)
@@ -157,7 +139,7 @@ using (var tx = new Transaction(doc, "Batch Modification"))
 
 ---
 
-### 4️⃣ Cancelable Loop within TransactionGroup
+### 4️⃣ Cancelable Transaction Group Loop
 
 ```csharp
 var walls = new FilteredElementCollector(doc)
@@ -180,3 +162,94 @@ using (var tg = new TransactionGroup(doc, "Transaction Group Batch Processing"))
     tg.Assimilate(); // Merge transaction group
 }
 ```
+
+---
+
+### 5️⃣ Custom Options Usage
+
+```csharp
+var options = new ProgressBarOptions
+{
+    CancelButtonContent = "Cancel Operation",
+    // More custom options...
+};
+
+ProgressBarExUtils.Run(
+    elements: walls,
+    options: options,
+    loopAction: wall =>
+    {
+        // Processing logic
+    }
+);
+```
+
+---
+
+## 🐛 Issue Reporting
+
+If you encounter any problems during use or have improvement suggestions, please feel free to provide feedback through the following methods:
+
+### GitHub Issues
+[https://github.com/ViewSuSu/Su.Revit.UI.StatusBarEx/issues](https://github.com/ViewSuSu/Su.Revit.UI.StatusBarEx/issues)
+
+### Gitee Issues
+[https://gitee.com/SususuChang/status-bar-ex/issues](https://gitee.com/SususuChang/status-bar-ex/issues)
+
+### Issue Template
+To better understand and resolve issues, please include the following information when submitting an Issue:
+
+```markdown
+## Problem Description
+[Clearly describe the problem encountered]
+
+## Reproduction Steps
+1. 
+2. 
+3. 
+
+## Expected Behavior
+[Describe expected result]
+
+## Actual Behavior
+[Describe actual result]
+
+## Environment Information
+- Revit Version: [e.g., Revit 2020]
+- .NET Framework Version: [e.g., 4.8]
+- Operating System: [e.g., Windows 10]
+- Component Version: [e.g., 1.0.0]
+
+## Error Log/Screenshot
+[If you have error logs or screenshots, please provide here]
+```
+
+## 🤝 Contribution Guide
+
+We welcome and appreciate all forms of contributions!
+
+### How to Contribute
+1. Fork this repository
+2. Create feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
+5. Open Pull Request
+
+### Development Environment Requirements
+- Visual Studio 2022 or higher
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+Thanks to the following open-source projects:
+- [ricaun.Revit.UI.StatusBar](https://github.com/ricaun-io/ricaun.Revit.UI.StatusBar) - Original project foundation
+- All contributors and users for their support
+
+---
+
+**If this project is helpful to you, please give it a ⭐ Star!**
