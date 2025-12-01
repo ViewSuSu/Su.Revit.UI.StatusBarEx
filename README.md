@@ -1,3 +1,6 @@
+![Version](https://img.shields.io/badge/版本支持-Revit%202011~2026-blueviolet)
+![License](https://img.shields.io/badge/license-MIT-green)
+
 # 📦 仓库信息
 
 **NuGet:** [https://www.nuget.org/packages/Su.Revit.UI.StatusBarEx](https://www.nuget.org/packages/Su.Revit.UI.StatusBarEx)
@@ -32,29 +35,8 @@
 | ✅ **支持旧版本 Revit** | 新增支持 **Revit 2011 - Revit 2026** 全系列版本 |
 | 🎯 **界面优化** | 进度条位置调整至 **Ribbon 下方**，更贴合 Revit 操作体验 |
 | 🧰 **可定制样式** | 支持传入 `Options` 参数来自定义进度条样式比如：颜色、文本、尺寸等（目前仅支持取消按钮 Button 的 Content） |
-
----
-
-## 🧱 版本支持
-
-| Revit 版本 | 支持情况 |
-| :--- | :---: |
-| 2011 | ✅ |
-| 2012 | ✅ |
-| 2013 | ✅ |
-| 2014 | ✅ |
-| 2015 | ✅ |
-| 2016 | ✅ |
-| 2017 | ✅ |
-| 2018 | ✅ |
-| 2019 | ✅ |
-| 2020 | ✅ |
-| 2021 | ✅ |
-| 2022 | ✅ |
-| 2023 | ✅ |
-| 2024 | ✅ |
-| 2025 | ✅ |
-| 2026 | ✅ |
+| 🔄 **取消操作支持** | 支持在长时间操作中取消执行，提升用户体验 |
+| 🌐 **多平台支持** | 支持 Gitee 和 GitHub 双平台代码托管 |
 
 ---
 
@@ -67,6 +49,7 @@
 Install-Package Su.Revit.UI.StatusBarEx.2018 -Version 1.0.0
 Install-Package Su.Revit.UI.StatusBarEx.2019 -Version 1.0.0
 Install-Package Su.Revit.UI.StatusBarEx.2020 -Version 1.0.0
+# 更多版本请查看 NuGet 页面
 ```
 
 ### 方法二：.NET CLI
@@ -179,3 +162,94 @@ using (var tg = new TransactionGroup(doc, "事务组批量处理"))
     tg.Assimilate(); // 合并事务组
 }
 ```
+
+---
+
+### 5️⃣ 自定义选项用法
+
+```csharp
+var options = new ProgressBarOptions
+{
+    CancelButtonContent = "取消操作",
+    // 更多自定义选项...
+};
+
+ProgressBarExUtils.Run(
+    elements: walls,
+    options: options,
+    loopAction: wall =>
+    {
+        // 处理逻辑
+    }
+);
+```
+
+---
+
+## 🐛 问题反馈
+
+如果您在使用过程中遇到任何问题或有改进建议，欢迎通过以下方式反馈：
+
+### GitHub Issues
+[https://github.com/ViewSuSu/Su.Revit.UI.StatusBarEx/issues](https://github.com/ViewSuSu/Su.Revit.UI.StatusBarEx/issues)
+
+### Gitee Issues
+[https://gitee.com/SususuChang/status-bar-ex/issues](https://gitee.com/SususuChang/status-bar-ex/issues)
+
+### 问题反馈模板
+为了更好地理解和解决问题，请在提交 Issue 时包含以下信息：
+
+```markdown
+## 问题描述
+[清晰描述遇到的问题]
+
+## 复现步骤
+1. 
+2. 
+3. 
+
+## 预期行为
+[描述期望的结果]
+
+## 实际行为
+[描述实际发生的结果]
+
+## 环境信息
+- Revit 版本: [如 Revit 2020]
+- .NET Framework 版本: [如 4.8]
+- 操作系统: [如 Windows 10]
+- 组件版本: [如 1.0.0]
+
+## 错误日志/截图
+[如有错误日志或截图，请在此处提供]
+```
+
+## 🤝 贡献指南
+
+我们欢迎并感谢所有形式的贡献！
+
+### 如何贡献
+1. Fork 本仓库
+2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 开启 Pull Request
+
+### 开发环境要求
+- Visual Studio 2022 或更高版本
+
+---
+
+## 📄 许可证
+
+本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
+
+## 🙏 致谢
+
+感谢以下开源项目：
+- [ricaun.Revit.UI.StatusBar](https://github.com/ricaun-io/ricaun.Revit.UI.StatusBar) - 原始项目基础
+- 所有贡献者和用户的支持
+
+---
+
+**如果这个项目对您有帮助，请给个 ⭐ Star 支持一下！**
