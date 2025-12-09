@@ -7,7 +7,7 @@
 
 **Gitee:** [https://gitee.com/SususuChang/status-bar-ex](https://gitee.com/SususuChang/status-bar-ex)
 
-**GitHub:** [https://github.com/SususuChang/status-bar-ex](https://github.com/ViewSuSu/Su.Revit.UI.StatusBarEx)
+**GitHub:** [https://github.com/ViewSuSu/Su.Revit.UI.StatusBarEx](https://github.com/ViewSuSu/Su.Revit.UI.StatusBarEx)
 
 ---
 
