@@ -4,7 +4,7 @@ using System.Windows.Input;
 
 namespace Su.Revit.UI.StatusBarEx.HighVersion.StatusBar.Controls
 {
-    public partial class ProgressBarStackPanel
+    internal partial class ProgressBarStackPanel
     {
         /// <summary>
         /// ProgressBarData
@@ -33,7 +33,7 @@ namespace Su.Revit.UI.StatusBarEx.HighVersion.StatusBar.Controls
             //  this.AddResourceThemes();
         }
 
-        public class ProgressBarData : INotifyPropertyChanged
+        internal class ProgressBarData : INotifyPropertyChanged
         {
             private bool _isIndeterminate = false;
             private string _currentOperation = "Loading";
