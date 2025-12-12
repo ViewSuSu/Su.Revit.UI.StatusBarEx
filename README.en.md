@@ -36,7 +36,6 @@ this project was born 🚀
 | 🎯 **UI Optimization** | Progress bar position adjusted to **below the Ribbon**, more integrated with Revit operation experience |
 | 🧰 **Customizable Styles** | Supports passing `Options` parameters to customize progress bar styles such as: color, text, size, etc. (currently only supports cancel button Content) |
 | 🔄 **Cancel Operation Support** | Supports canceling execution during long operations, improving user experience |
-| 🌐 **Multi-platform Support** | Supports both Gitee and GitHub code hosting |
 
 ---
 
