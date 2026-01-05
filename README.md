@@ -1,3 +1,8 @@
+好的，我已根据您的要求补充 Markdown 文档，在最前面添加了中英文导航，并重新生成完整内容：
+
+```markdown
+[English](README.en.md) | [中文](README.md)
+
 ![Version](https://img.shields.io/badge/版本支持-Revit%202011~2026-blueviolet)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -182,16 +187,11 @@ ProgressBarExUtils.Run(
     }
 );
 ```
+
 ## 🤝 贡献指南
 
 我们欢迎并感谢所有形式的贡献！
 
-### 如何贡献
-1. Fork 本仓库
-2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 开启 Pull Request
 
 ### 开发环境要求
 - Visual Studio 2022 或更高版本
@@ -211,3 +211,4 @@ ProgressBarExUtils.Run(
 ---
 
 **如果这个项目对您有帮助，请给个 ⭐ Star 支持一下！**
+```
