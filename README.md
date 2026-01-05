@@ -1,3 +1,9 @@
+当然可以！我帮你把你的 Markdown 重新整理，并在最前面加上 **语言导航**，方便中英文切换，同时保持原有内容结构和格式：
+
+````markdown
+English | 中文
+[README.en.md](README.en.md) | [README.md](README.md)
+
 ![Version](https://img.shields.io/badge/版本支持-Revit%202011~2026-blueviolet)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -49,7 +55,7 @@ Install-Package Su.Revit.UI.StatusBarEx.2018 -Version 1.0.0
 Install-Package Su.Revit.UI.StatusBarEx.2019 -Version 1.0.0
 Install-Package Su.Revit.UI.StatusBarEx.2020 -Version 1.0.0
 # 更多版本请查看 NuGet 页面
-```
+````
 
 ### 方法二：.NET CLI
 
@@ -182,11 +188,15 @@ ProgressBarExUtils.Run(
     }
 );
 ```
+
+---
+
 ## 🤝 贡献指南
 
 我们欢迎并感谢所有形式的贡献！
 
 ### 如何贡献
+
 1. Fork 本仓库
 2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
 3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
@@ -194,7 +204,8 @@ ProgressBarExUtils.Run(
 5. 开启 Pull Request
 
 ### 开发环境要求
-- Visual Studio 2022 或更高版本
+
+* Visual Studio 2022 或更高版本
 
 ---
 
@@ -205,8 +216,9 @@ ProgressBarExUtils.Run(
 ## 🙏 致谢
 
 感谢以下开源项目：
-- [ricaun.Revit.UI.StatusBar](https://github.com/ricaun-io/ricaun.Revit.UI.StatusBar) - 原始项目基础
-- 所有贡献者和用户的支持
+
+* [ricaun.Revit.UI.StatusBar](https://github.com/ricaun-io/ricaun.Revit.UI.StatusBar) - 原始项目基础
+* 所有贡献者和用户的支持
 
 ---
 
