@@ -1,6 +1,8 @@
 ![Version](https://img.shields.io/badge/版本支持-Revit%202011~2026-blueviolet)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
+ [English](README.en.md) | [中文](README.md)
+
 # 📦 仓库信息
 
 **NuGet:** [https://www.nuget.org/packages/Su.Revit.UI.StatusBarEx](https://www.nuget.org/packages/Su.Revit.UI.StatusBarEx)
