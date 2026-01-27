@@ -1,4 +1,4 @@
- [English](README.en.md) | [中文](README.md)
+ [English](README.en.md) | [简体中文](README.md)
  
 ![Version](https://img.shields.io/badge/版本支持-Revit%202011~2026-blueviolet)
 ![License](https://img.shields.io/badge/license-MIT-green)
