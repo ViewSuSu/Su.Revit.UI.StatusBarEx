@@ -207,3 +207,8 @@ ProgressBarExUtils.Run(
 ---
 
 **如果这个项目对您有帮助，请给个 ⭐ Star 支持一下！**
+
+
+## 星曲线图 / Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=ViewSuSu/Su.Revit.UI.StatusBarEx&type=Date)](https://star-history.com/#ViewSuSu/Su.Revit.UI.StatusBarEx&Date)

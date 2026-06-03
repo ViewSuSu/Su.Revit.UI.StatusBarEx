@@ -254,3 +254,8 @@ Thanks to the following open-source projects:
 ---
 
 **If this project is helpful to you, please give it a ⭐ Star!**
+
+
+## 星曲线图 / Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=ViewSuSu/Su.Revit.UI.StatusBarEx&type=Date)](https://star-history.com/#ViewSuSu/Su.Revit.UI.StatusBarEx&Date)
